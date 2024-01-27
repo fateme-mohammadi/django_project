@@ -1,28 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Restaurant FKR</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <script src="{% static 'js/script.js' %}"></script>
-</head>
-<body>
+{% extends 'base.html' %}
+    {% block title %} Home {% endblock %}
     {% block content %}
         <h1 style="color: blueviolet;"> HELLO FROM MY PAGE</h1>
-    {% endblock content %}
 
-    <h2>Food Menu</h2>
-    {% for food in foods %}
-        <div>
-            <h3>{{ food.name }}</h3>
-            <img src="{{ food.image.url }}" alt="{{ food.name }}" width="200">
-            <p>{{ food.description }}</p>
-            <p>Price: ${{ food.price }}</p>
-        </div>
-    {% empty %}
-        <p>No food items available.</p>
-    {% endfor %}
-</body>
-</html>
+
+        <h2>Food Menu</h2>
+        {% for food in foods %}
+            <div>
+                <h3>{{ food.name }}</h3>
+                <img src="{{ food.image.url }}" alt="{{ food.name }}" width="200">
+                <p>{{ food.description }}</p>
+                <p>Price: ${{ food.price }}</p>
+            </div>
+            {% empty %}
+            <p>No food items available.</p>
+        {% endfor %}
+
+    {% endblock %}
