@@ -6,6 +6,8 @@ from .models import Factor
 from .models import Select
 
 # Register your models here.
+class FoodAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description', 'price')
 
 admin.site.register(Customer)
 admin.site.register(Food)
