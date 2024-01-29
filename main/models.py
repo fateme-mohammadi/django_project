@@ -58,4 +58,16 @@ class BikeDelivery(models.Model):
     
     def __str__(self):
         return self.bikedelivery_code
+    
+    
+
+class Delivery(models.Model):
+    delivery_datetime = models.IntegerField()
+    bikedelivery_code = models.ForeignKey
+    factor_number = models.ForeignKey
+    
+    
+    def __str__(self):
+        return self.delivery_datetime
+    
 

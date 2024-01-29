@@ -5,6 +5,7 @@ from .models import Section
 from .models import Factor
 from .models import Select
 from .models import BikeDelivery
+from .models import Delivery
 
 # Register your models here.
 class FoodAdmin(admin.ModelAdmin):
@@ -16,3 +17,4 @@ admin.site.register(Section)
 admin.site.register(Factor)
 admin.site.register(Select)
 admin.site.register(BikeDelivery)
+admin.site.register(Delivery)
