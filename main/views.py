@@ -13,9 +13,10 @@ def Food_list(request):
     }
     return render(request,"foods.html",context)
 '''
-class MenuListView(ListView):
-    model = Section
-    template_name = 'foods/foods.html'
+
+def food_list(request):
+    foods = Food.objects.all()
+    return render(request, 'foods.html', {'foods': foods})
 
 def detail(request, food_id):
     food = Food.objects.get(id=food_id)
