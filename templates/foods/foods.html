@@ -1,9 +1,9 @@
   {% extends 'base.html' %}
-  {% block title %} food {% endblock %}
   {% block content %}
     <ul>
       {% for food in food_list %}
         <li>
+          <img src="{{ food.image.url }}" alt="{{ food.name }}" width="200">
           {{food.name}}
         </li>
       {% endfor %}

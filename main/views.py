@@ -15,39 +15,13 @@ def Food_list(request):
 '''
 class MenuListView(ListView):
     model = Section
-    template_name = 'main/home.html'
-    context_object_name = 'menu_items'
+    template_name = 'foods/foods.html'
 
-class FoodDetailView(DetailView):
-    model = Food
-    template_name = "foods/detail.html"
+def detail(request, food_id):
+    food = Food.objects.get(id=food_id)
+    return render(request, 'detail.html', {'food':food})
     
 class FoodListView(ListView):
     model = Food
-    template_name = "foods/foods.html"
+    template_name = "home.html"
     
-def login_view(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            messages.error(request, 'Invalid username or password.')
-    return render(request, 'home.html', {'foods': Food.objects.all()})
-def logout_view(request):
-    logout(request)
-    return redirect('login')
-def register_view(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}. You can now log in.')
-            return redirect('login')
-    else:
-        form = UserCreationForm()
-    return render(request, 'register.html', {'form': form})

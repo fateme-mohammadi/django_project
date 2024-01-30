@@ -4,7 +4,7 @@
 {% block content %}
     <h2>Login</h2>
     <hr>
-    <fort action="" method="POST">
+    <form action="" method="POST">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit">Login</button>

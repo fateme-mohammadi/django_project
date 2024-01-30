@@ -1,18 +1,21 @@
 
 {% extends 'base.html' %}
-    {% block title %} Home {% endblock %}
     {% block content %}
         <h1 style="color: blueviolet;"> HELLO FROM MY PAGE</h1>
 
-
         <h2>Food Menu</h2>
+
         {% for food in foods %}
-            <div>
-                <h3>{{ food.name }}</h3>
+            <li>
+                <a href="/foods/{{section.id}}">{{ section.name }}</a><br>
+            </li>
+        {% endfor %}
+
+        {% for food in foods %}
+            <li>
                 <img src="{{ food.image.url }}" alt="{{ food.name }}" width="200">
-                <p>{{ food.description }}</p>
-                <p>Price: ${{ food.price }}</p>
-            </div>
+                <a href="/detail/{{food.id}}">{{ food.name }}</a><br>
+            </li>
             {% empty %}
             <p>No food items available.</p>
         {% endfor %}
