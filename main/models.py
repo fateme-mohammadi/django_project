@@ -48,26 +48,5 @@ class Select(models.Model):
     def __str__(self):
        return self.select_number
    
-   
-
-class BikeDelivery(models.Model):
-    bikedelivery_code = models.IntegerField(primary_key=True)
-    bikedelivery_name = models.CharField(max_length=50)
-    bikedelivery_phone = models.IntegerField()
-    
-    
-    def __str__(self):
-        return self.bikedelivery_code
-    
-    
-
-class Delivery(models.Model):
-    delivery_datetime = models.IntegerField()
-    bikedelivery_code = models.ForeignKey
-    factor_number = models.ForeignKey
-    
-    
-    def __str__(self):
-        return self.delivery_datetime
     
 
