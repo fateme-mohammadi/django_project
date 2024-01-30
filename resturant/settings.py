@@ -119,11 +119,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'main', 'static'),
+    os.path.join(str(BASE_DIR.joinpath('static'))),
 ]
 
 #login redirect
-LOGIN_REDIRECT_URL = 'food_list'
+LOGIN_REDIRECT_URL = 'home.html'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
