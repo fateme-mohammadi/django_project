@@ -14,15 +14,14 @@ def Food_list(request):
     return render(request,"foods.html",context)
 '''
 
-def food_list(request):
+def Food_list(request):
     foods = Food.objects.all()
-    return render(request, 'foods.html', {'foods': foods})
+    return render(request, 'foods/foods.html', {'foods': foods})
 
 def detail(request, food_id):
-    food = Food.objects.get(id=food_id)
-    return render(request, 'detail.html', {'food':food})
+    detail = Food.objects.get(id=food_id)
+    return render(request, 'foods/detail.html', {'detail':detail})
     
-class FoodListView(ListView):
-    model = Food
-    template_name = "home.html"
-    
+def TemplateView(request):
+    return render(request, 'home.html')
+

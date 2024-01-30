@@ -1,17 +1,18 @@
 
+
 {% extends 'base.html' %}
     {% block content %}
         <h1 style="color: blueviolet;"> HELLO FROM MY PAGE</h1>
 
         <h2>Food Menu</h2>
-
+        <h2>{{sections}}</h2>
         {% for section in sections %}
-            <li>
-                <a href="/foods/{{section.id}}">{{ section.name }}</a><br>
-            </li>
+            <ul>
+                <h3>{{section.name}}</h3>
+            </ul>
         {% endfor %}
 
-        {% for food in foods %}
+        {% for food in Food_list %}
             <li>
                 <img src="{{ food.image.url }}" alt="{{ food.name }}" width="200">
                 <a href="/detail/{{food.id}}">{{ food.name }}</a><br>

@@ -2,10 +2,11 @@
 {% block title %} Food Detail {% endblock %}
 {% block content %}
 
-  <h1>Deatil of {{object.name}}</h1>
-  <img src="{{ food.image.url }}" alt="{{ food.name }}" width="200">
-  <hr>
-  <small>{{ food.description }}</small>
-  <p>Price: ${{ food.price }}</p>
+h2>{{detail}}</h2>
+<h1>Deatil of {{object.name}}</h1>
+<img src="{{ detail.image.url }}" alt="{{ food.name }}" width="200">
+<hr>
+<small>{{ object.description }}</small>
+<h3>Price: ${{ object.price }}</h3>
 
 {% endblock %}
