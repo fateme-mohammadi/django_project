@@ -5,22 +5,27 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
+'''
 def Food_list(request):
     foods = Food.objects.all()
     context = {
         "foods":foods
     }
     return render(request,"foods.html",context)
-
+'''
 class MenuListView(ListView):
     model = Section
     template_name = 'main/home.html'
     context_object_name = 'menu_items'
 
+class FoodDetailView(DetailView):
+    model = Food
+    template_name = "foods/detail.html"
+    
 class FoodListView(ListView):
     model = Food
     template_name = "foods/foods.html"
-    context_object_name = "foods"
+    
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
